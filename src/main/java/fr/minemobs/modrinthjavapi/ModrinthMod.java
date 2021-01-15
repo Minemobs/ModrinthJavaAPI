@@ -1,5 +1,7 @@
 package fr.minemobs.modrinthjavapi;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -22,10 +24,13 @@ public class ModrinthMod {
     private String wiki_url;
     private String discord_url;
     private String donation_url;
+    private String published;
+    private String updated;
 
     public ModrinthMod(String id, String team, String title, String description, String status, HashMap<String, String> license, String client_side,
                        String server_side, int downloads, String[] categories, String[] versions, String icon_url,
-                       String issues_url, String source_url, String wiki_url, String discord_url, String donation_url) {
+                       String issues_url, String source_url, String wiki_url, String discord_url, String donation_url,
+                       String published, String updated) {
         this.id = id;
         this.team = team;
         this.title = title;
@@ -43,6 +48,19 @@ public class ModrinthMod {
         this.wiki_url = wiki_url;
         this.discord_url = discord_url;
         this.donation_url = donation_url;
+
+        this.published = published;
+        this.updated = updated;
+    }
+
+    public LocalDateTime formatDate(String dateAsString){
+        LocalDateTime date;
+
+        int index = dateAsString.indexOf(".");
+        dateAsString = dateAsString.substring(0, index);
+        dateAsString+="Z";
+        date = LocalDateTime.parse(dateAsString, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'"));
+        return date;
     }
 
     @Override
@@ -65,6 +83,8 @@ public class ModrinthMod {
                 ", wiki_url='" + wiki_url + '\'' +
                 ", discord_url='" + discord_url + '\'' +
                 ", donation_url='" + donation_url + '\'' +
+                ", published='" + published + '\'' +
+                ", updated='" + updated + '\'' +
                 '}';
     }
 
@@ -134,5 +154,13 @@ public class ModrinthMod {
 
     public String getDonation_url() {
         return donation_url;
+    }
+
+    public String getPublished() {
+        return published;
+    }
+
+    public String getUpdated() {
+        return updated;
     }
 }

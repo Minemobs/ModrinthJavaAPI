@@ -35,7 +35,13 @@ public class MainClass {
             modrinthVersions.add(getVersionFromNameOfTheVersion(version));
         }
         System.out.println("--------------------------------------");
-        System.out.println(modrinthMod.toString());
+        System.out.println(modrinthMod.formatDate(modrinthMod.getPublished()).toString());
+        System.out.println("--------------------------------------");
+        for (ModrinthVersion modrinthVersion : modrinthVersions) {
+            for (ModrinthVersion.File file : modrinthVersion.getFiles()) {
+                System.out.println(file.getUrl());
+            }
+        }
     }
 
     private ModrinthMod getModrinthModfromName(String nameOfTheMod) {

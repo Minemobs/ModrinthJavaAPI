@@ -1,5 +1,7 @@
 package fr.minemobs.modrinthjavapi;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -17,6 +19,9 @@ public class ModrinthVersion {
     private String[] game_versions;
     private String[] loaders;
     private File[] files;
+    private String date_published;
+
+    private LocalDateTime date_publishedAsADate;
 
     public static class File {
         private HashMap<String, String> hashes;
@@ -53,7 +58,7 @@ public class ModrinthVersion {
 
     public ModrinthVersion(String id, String mod_id, String name, String version_number, String changelog_url,
                            int downloads, String version_type, String[] dependencies, String[] game_versions,
-                           String[] loaders, File[] files) {
+                           String[] loaders, File[] files, String date_published) {
         this.id = id;
         this.mod_id = mod_id;
         this.name = name;
@@ -65,6 +70,9 @@ public class ModrinthVersion {
         this.game_versions = game_versions;
         this.loaders = loaders;
         this.files = files;
+        this.date_published = date_published;
+
+        date_publishedAsADate = LocalDateTime.parse(date_published, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'"));
     }
 
     public String getId() {
@@ -111,6 +119,14 @@ public class ModrinthVersion {
         return files;
     }
 
+    public LocalDateTime getDate_publishedAsADate() {
+        return date_publishedAsADate;
+    }
+
+    public String getDate_published() {
+        return date_published;
+    }
+
     @Override
     public String toString() {
         return "ModrinthVersion{" +
@@ -125,6 +141,8 @@ public class ModrinthVersion {
                 ", game_versions=" + Arrays.toString(game_versions) +
                 ", loaders=" + Arrays.toString(loaders) +
                 ", files=" + Arrays.toString(files) +
+                ", date_published='" + date_published + '\'' +
+                ", date_publishedAsADate=" + date_publishedAsADate +
                 '}';
     }
 }
