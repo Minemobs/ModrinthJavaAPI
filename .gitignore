@@ -17,3 +17,4 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 
 # aubin
+/src/main/resources/someUslessResources
