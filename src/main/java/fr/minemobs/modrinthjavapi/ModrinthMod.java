@@ -1,5 +1,11 @@
 package fr.minemobs.modrinthjavapi;
 
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.Request.Builder;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -167,7 +173,8 @@ public class ModrinthMod {
         return updated;
     }
 
-    public static ModrinthMod getModrinthModfromName(String nameOfTheMod, char[] invalidChars) {
+    public static ModrinthMod getModrinthModfromName(String nameOfTheMod) {
+        char[] invalidChars = {"'".charAt(0), ')', '('};
         ModrinthMod mod = null;
 
         nameOfTheMod = nameOfTheMod.replaceAll(" ","-");
@@ -189,5 +196,23 @@ public class ModrinthMod {
             e.printStackTrace();
         }
         return mod;
+    }
+
+    public static String deleteMod(String modid, String token){
+        MediaType mediaType = MediaType.parse("text/plain");
+        RequestBody body = RequestBody.create(mediaType, "");
+        Request request = new Request.Builder()
+                .url(MainClass.baseUrl + "mod/" + modid)
+                .method("DELETE", body)
+                .addHeader("Authorization", token)
+                .build();
+        String responseText = null;
+        try {
+            Response response = MainClass.getClient().newCall(request).execute();
+            responseText = response.body().string();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return responseText;
     }
 }

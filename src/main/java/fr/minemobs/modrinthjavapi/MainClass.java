@@ -41,8 +41,6 @@ public class MainClass {
 
     public static String baseUrl = "https://api.modrinth.com/api/v1/";
 
-    private char[] invalidChars = {"'".charAt(0), ')', '('};
-
     private void launchprog(String[] args) throws Exception {
         if(args.length == 0 || args[0] == null || args[0].isEmpty()) {
             System.out.println("Write your token. If you don't know how to get a token please go on this page : https://modrinth.com/dashboard/settings" +
@@ -55,10 +53,10 @@ public class MainClass {
             }
         }
 
-        System.out.println("Please write the name of the mod you want to search.");
+        /*System.out.println("Please write the name of the mod you want to search.");
         Scanner sc = new Scanner(System.in);
         String nameOfTheMod = sc.nextLine();
-        ModrinthMod modrinthMod = ModrinthMod.getModrinthModfromName(nameOfTheMod, invalidChars);
+        ModrinthMod modrinthMod = ModrinthMod.getModrinthModfromName(nameOfTheMod);
         ArrayList<ModrinthVersion> modrinthVersions = new ArrayList<>();
         for (String version : modrinthMod.getVersions()) {
             modrinthVersions.add(ModrinthVersion.getVersionFromNameOfTheVersion(version));
@@ -71,7 +69,8 @@ public class MainClass {
                 "I only test the api", new String[]{}, new String[]{"1.16.5", "1.16.4"}, ReleaseChannel.RELEASE, new String[]{Loaders.FORGE.getS()},
                 false, new File("src/main/resources/someUslessResources/puffertweaks-1.1.jar"));
         ModrinthVersion version = uploadVersion.uploadVersionToModrinth(token);
-        GetUser user = GetUser.getMySelf(token);
+        GetUser user = GetUser.getMySelf(token);*/
+        System.out.println(ModrinthMod.deleteMod("ad98J0dO", token));
     }
 
     public static boolean contains(String str, char chr) {

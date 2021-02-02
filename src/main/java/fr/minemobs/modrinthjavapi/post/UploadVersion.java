@@ -144,7 +144,6 @@ public class UploadVersion {
 
     public ModrinthVersion uploadVersionToModrinth(String token) throws IOException {
 
-
         MediaType mediaType = MediaType.parse("text/plain");
 
         String dataForm = formatedString();
