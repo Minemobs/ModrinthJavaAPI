@@ -1,6 +1,8 @@
 package fr.minemobs.modrinthjavapi.get;
 
 import fr.minemobs.modrinthjavapi.MainClass;
+import okhttp3.Request;
+import okhttp3.Response;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -73,7 +75,7 @@ public class GetUser {
                 '}';
     }
 
-    private GetUser getUserFromName(String username) {
+    public GetUser getUserFromName(String username) {
         try {
             if(username.contains("@")){
                 username = username.replace("@","");
@@ -81,6 +83,25 @@ public class GetUser {
             URL url = new URL(MainClass.baseUrl + "user/@" + username);
             InputStreamReader inputStreamReader = new InputStreamReader(url.openStream());
             return MainClass.getGson().fromJson(inputStreamReader, GetUser.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static GetUser getMySelf(String token){
+        try {
+            URL url = new URL(MainClass.baseUrl + "user");
+            Request request = new Request.Builder()
+                    .url(MainClass.baseUrl + "user")
+                    .method("GET", null)
+                    .addHeader("Authorization", token)
+                    .build();
+            Response response = MainClass.getClient().newCall(request).execute();
+            String responseBody = response.body().string();
+            GetUser user = MainClass.getGson().fromJson(responseBody, GetUser.class);
+            response.close();
+            return user;
         } catch (IOException e) {
             e.printStackTrace();
         }

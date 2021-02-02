@@ -7,11 +7,6 @@ import okhttp3.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.Proxy;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 
 public class UploadVersion {
     /**
@@ -147,28 +142,23 @@ public class UploadVersion {
                 arrayToString(this.loaders), this.featured);
     }
 
-    public ModrinthVersion uploadVersionToModrinth() throws IOException {
-        OkHttpClient client = new OkHttpClient().newBuilder()
-                .protocols(Collections.singletonList(Protocol.HTTP_1_1))
-                .connectTimeout(15, TimeUnit.SECONDS)
-                .readTimeout(15, TimeUnit.SECONDS)
-                .writeTimeout(15, TimeUnit.SECONDS)
-                .build();
+    public ModrinthVersion uploadVersionToModrinth(String token) throws IOException {
+
 
         MediaType mediaType = MediaType.parse("text/plain");
 
         String dataForm = formatedString();
 
-        //noinspection deprecation
         RequestBody body = new MultipartBody.Builder().setType(MultipartBody.FORM)
                 .addFormDataPart("data", dataForm)
                 .addFormDataPart("file", file.getName(), RequestBody.create(MediaType.parse("application/octet-stream"), file)).build();
         Request request = new Request.Builder()
                 .url(MainClass.baseUrl + "version")
                 .method("POST", body)
-                .addHeader("Authorization", MainClass.getToken())
+                .addHeader("Authorization", token)
                 .build();
-        Response response = client.newCall(request).execute();
-        return MainClass.getGson().fromJson(Objects.requireNonNull(response.body()).string(), ModrinthVersion.class);
+        Response response = MainClass.getClient().newCall(request).execute();
+        String responseText = response.body().string();
+        return MainClass.getGson().fromJson(responseText, ModrinthVersion.class);
     }
 }

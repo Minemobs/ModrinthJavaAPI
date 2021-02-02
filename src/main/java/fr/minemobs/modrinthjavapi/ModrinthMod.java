@@ -1,5 +1,8 @@
 package fr.minemobs.modrinthjavapi;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -162,5 +165,29 @@ public class ModrinthMod {
 
     public String getUpdated() {
         return updated;
+    }
+
+    public static ModrinthMod getModrinthModfromName(String nameOfTheMod, char[] invalidChars) {
+        ModrinthMod mod = null;
+
+        nameOfTheMod = nameOfTheMod.replaceAll(" ","-");
+
+        for (char invalidChar : invalidChars) {
+            if(MainClass.contains(nameOfTheMod, invalidChar)){
+                nameOfTheMod = nameOfTheMod.replace(String.valueOf(invalidChar),"");
+            }
+        }
+
+        nameOfTheMod = nameOfTheMod.replace(' ','-').toLowerCase().replace("'","");
+        String nameOfTheModFormatted = nameOfTheMod;
+        try {
+            URL url = new URL(MainClass.baseUrl + "mod/" + nameOfTheModFormatted);
+            InputStreamReader reader = new InputStreamReader(url.openStream());
+            mod = MainClass.getGson().fromJson(reader, ModrinthMod.class);
+            reader.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return mod;
     }
 }

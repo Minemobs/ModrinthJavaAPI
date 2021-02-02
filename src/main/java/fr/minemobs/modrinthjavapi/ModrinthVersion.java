@@ -1,5 +1,8 @@
 package fr.minemobs.modrinthjavapi;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -144,5 +147,13 @@ public class ModrinthVersion {
                 ", date_published='" + date_published + '\'' +
                 ", date_publishedAsADate=" + date_publishedAsADate +
                 '}';
+    }
+
+    public static ModrinthVersion getVersionFromNameOfTheVersion(String versionName) throws IOException {
+        URL url = new URL(MainClass.baseUrl + "version/" + versionName);
+        InputStreamReader reader = new InputStreamReader(url.openStream());
+        ModrinthVersion modrinthVersion = MainClass.getGson().fromJson(reader, ModrinthVersion.class);
+        reader.close();
+        return modrinthVersion;
     }
 }
