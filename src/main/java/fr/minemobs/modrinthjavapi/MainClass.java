@@ -2,15 +2,14 @@ package fr.minemobs.modrinthjavapi;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import fr.minemobs.modrinthjavapi.get.GetUser;
-import fr.minemobs.modrinthjavapi.post.UploadVersion;
+import fr.minemobs.modrinthjavapi.get.GetTags;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -32,7 +31,6 @@ public class MainClass {
 
     public static void main(String[] args) {
         try {
-            LOGGER.info("Hi");
             new MainClass().launchprog(args);
         } catch (Exception e) {
             e.printStackTrace();
@@ -53,7 +51,7 @@ public class MainClass {
             }
         }
 
-        /*System.out.println("Please write the name of the mod you want to search.");
+        System.out.println("Please write the name of the mod you want to search.");
         Scanner sc = new Scanner(System.in);
         String nameOfTheMod = sc.nextLine();
         ModrinthMod modrinthMod = ModrinthMod.getModrinthModfromName(nameOfTheMod);
@@ -65,12 +63,11 @@ public class MainClass {
         System.out.println(modrinthMod.formatDate(modrinthMod.getPublished()).toString());
         System.out.println("--------------------------------------");
         System.out.println(gson.toJson(modrinthMod));
-        UploadVersion uploadVersion = new UploadVersion("lrZKwHNJ", new String[]{"puffertweaks-1.1.jar"}, "v1.3", "Test version",
+        /*UploadVersion uploadVersion = new UploadVersion("lrZKwHNJ", new String[]{"puffertweaks-1.1.jar"}, "v1.3", "Test version",
                 "I only test the api", new String[]{}, new String[]{"1.16.5", "1.16.4"}, ReleaseChannel.RELEASE, new String[]{Loaders.FORGE.getS()},
                 false, new File("src/main/resources/someUslessResources/puffertweaks-1.1.jar"));
-        ModrinthVersion version = uploadVersion.uploadVersionToModrinth(token);
-        GetUser user = GetUser.getMySelf(token);*/
-        System.out.println(ModrinthMod.deleteMod("ad98J0dO", token));
+        ModrinthVersion version = uploadVersion.uploadVersionToModrinth(token);*/
+        User user = User.getMySelf(token);
     }
 
     public static boolean contains(String str, char chr) {

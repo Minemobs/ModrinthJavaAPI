@@ -1,6 +1,5 @@
-package fr.minemobs.modrinthjavapi.get;
+package fr.minemobs.modrinthjavapi;
 
-import fr.minemobs.modrinthjavapi.MainClass;
 import okhttp3.Request;
 import okhttp3.Response;
 
@@ -8,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-public class GetUser {
+public class User {
     private String id;
     private long github_id;
     private String username;
@@ -18,7 +17,7 @@ public class GetUser {
     private String bio;
     private String role;
 
-    public GetUser(String id, long github_id, String username, String name, String email, String avatar_url, String bio, String role) {
+    public User(String id, long github_id, String username, String name, String email, String avatar_url, String bio, String role) {
         this.id = id;
         this.github_id = github_id;
         this.username = username;
@@ -75,36 +74,51 @@ public class GetUser {
                 '}';
     }
 
-    public GetUser getUserFromName(String username) {
+    public User getUserFromName(String username) {
         try {
             if(username.contains("@")){
                 username = username.replace("@","");
             }
             URL url = new URL(MainClass.baseUrl + "user/@" + username);
             InputStreamReader inputStreamReader = new InputStreamReader(url.openStream());
-            return MainClass.getGson().fromJson(inputStreamReader, GetUser.class);
+            return MainClass.getGson().fromJson(inputStreamReader, User.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public static GetUser getMySelf(String token){
+    public static User getMySelf(String token){
         try {
             URL url = new URL(MainClass.baseUrl + "user");
             Request request = new Request.Builder()
-                    .url(MainClass.baseUrl + "user")
+                    .url(url)
                     .method("GET", null)
                     .addHeader("Authorization", token)
                     .build();
             Response response = MainClass.getClient().newCall(request).execute();
             String responseBody = response.body().string();
-            GetUser user = MainClass.getGson().fromJson(responseBody, GetUser.class);
+            User user = MainClass.getGson().fromJson(responseBody, User.class);
             response.close();
             return user;
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void userDelete(String token){
+        try{
+            String userId = getMySelf(token).getId();
+            URL url = new URL(MainClass.baseUrl + "user/" + userId);
+            Request request = new Request.Builder()
+                    .url(url)
+                    .method("DELETE", null)
+                    .addHeader("Authorization", token)
+                    .build();
+            Response response = MainClass.getClient().newCall(request).execute();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
