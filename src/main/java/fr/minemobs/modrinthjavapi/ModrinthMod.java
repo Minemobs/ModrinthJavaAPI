@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -184,7 +185,7 @@ public class ModrinthMod {
             }
         }
 
-        nameOfTheMod = nameOfTheMod.replace(' ','-').toLowerCase().replace("'","");
+        nameOfTheMod = nameOfTheMod.replace(' ','-').replace("'","");
         String nameOfTheModFormatted = nameOfTheMod;
         try {
             URL url = new URL(MainClass.baseUrl + "mod/" + nameOfTheModFormatted);
@@ -213,5 +214,22 @@ public class ModrinthMod {
             e.printStackTrace();
         }
         return responseText;
+    }
+
+    public static ArrayList<ModrinthMod> getModFromUserId(User user){
+        String userid = user.getId();
+        InputStreamReader inputStreamReader = null;
+        try{
+            URL url = new URL(MainClass.baseUrl + "user/" + userid + "/mods");
+            inputStreamReader = new InputStreamReader(url.openStream());
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        String[] modsId = MainClass.getGson().fromJson(inputStreamReader, String[].class);
+        ArrayList<ModrinthMod> userMods = new ArrayList<>();
+        for (String s : modsId) {
+            userMods.add(getModrinthModfromName(s));
+        }
+        return userMods;
     }
 }

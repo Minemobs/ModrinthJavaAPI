@@ -39,7 +39,7 @@ public class MainClass {
 
     public static String baseUrl = "https://api.modrinth.com/api/v1/";
 
-    private void launchprog(String[] args) throws Exception {
+    private void launchprog(String[] args) {
         if(args.length == 0 || args[0] == null || args[0].isEmpty()) {
             System.out.println("Write your token. If you don't know how to get a token please go on this page : https://modrinth.com/dashboard/settings" +
                     "\n And copy your token");
@@ -51,7 +51,7 @@ public class MainClass {
             }
         }
 
-        System.out.println("Please write the name of the mod you want to search.");
+        /*System.out.println("Please write the name of the mod you want to search.");
         Scanner sc = new Scanner(System.in);
         String nameOfTheMod = sc.nextLine();
         ModrinthMod modrinthMod = ModrinthMod.getModrinthModfromName(nameOfTheMod);
@@ -63,11 +63,17 @@ public class MainClass {
         System.out.println(modrinthMod.formatDate(modrinthMod.getPublished()).toString());
         System.out.println("--------------------------------------");
         System.out.println(gson.toJson(modrinthMod));
-        /*UploadVersion uploadVersion = new UploadVersion("lrZKwHNJ", new String[]{"puffertweaks-1.1.jar"}, "v1.3", "Test version",
+        UploadVersion uploadVersion = new UploadVersion("lrZKwHNJ", new String[]{"puffertweaks-1.1.jar"}, "v1.3", "Test version",
                 "I only test the api", new String[]{}, new String[]{"1.16.5", "1.16.4"}, ReleaseChannel.RELEASE, new String[]{Loaders.FORGE.getS()},
                 false, new File("src/main/resources/someUslessResources/puffertweaks-1.1.jar"));
         ModrinthVersion version = uploadVersion.uploadVersionToModrinth(token);*/
         User user = User.getMySelf(token);
+        System.out.println(user.toString());
+        ModrinthMod.getModFromUserId(user).forEach(modrinthMod1 -> {
+            System.out.println("----------------------------------");
+            System.out.println(modrinthMod1.toString());
+            System.out.println("----------------------------------");
+        });
     }
 
     public static boolean contains(String str, char chr) {
