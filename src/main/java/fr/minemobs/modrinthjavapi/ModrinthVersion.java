@@ -1,5 +1,10 @@
 package fr.minemobs.modrinthjavapi;
 
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -155,5 +160,31 @@ public class ModrinthVersion {
         ModrinthVersion modrinthVersion = MainClass.getGson().fromJson(reader, ModrinthVersion.class);
         reader.close();
         return modrinthVersion;
+    }
+
+    public static void deleteVersion(ModrinthVersion version, String token){
+        deleteVersion(version.getId(), token);
+    }
+
+    public static void deleteVersionFromId(String id, String token){
+        deleteVersion(id, token);
+    }
+
+    private static String deleteVersion(String id, String token){
+        MediaType mediaType = MediaType.parse("text/plain");
+        RequestBody body = RequestBody.create(mediaType, "");
+        Request request = new Request.Builder()
+                .url(MainClass.baseUrl + "version/" + id)
+                .method("DELETE", body)
+                .addHeader("Authorization", token)
+                .build();
+        String responseText = null;
+        try {
+            Response response = MainClass.getClient().newCall(request).execute();
+            responseText = response.body().string();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return responseText;
     }
 }
