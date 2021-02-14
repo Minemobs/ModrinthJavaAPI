@@ -24,7 +24,7 @@ public class GetTags {
     }
 
     /**
-     *
+     * Get a list of game versions
      * @return an array of Strings
      */
     public static String[] getGameVersions(){
@@ -39,7 +39,7 @@ public class GetTags {
     }
 
     /**
-     * Get all licenses on Modritnh
+     * Get all licenses on Modrinth
      * See an example of how to use this function here {@link #getAllLicenses()}
      * @return an array of HashMaps
      */
@@ -55,7 +55,7 @@ public class GetTags {
     }
 
     /**
-     *
+     * Get a list of categories
      * @return an array of Strings
      */
     public static String[] getCategories(){

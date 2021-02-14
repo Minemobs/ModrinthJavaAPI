@@ -27,13 +27,14 @@ test {
 }
 
 task moveJavadoc(type: Copy){
-    from "$buildDir/docs"
-    into "docs"
+    from "$buildDir/docs/javadoc"
+    include "**/*"
+    into "./docs"
+}
+
+task cleanJavadoc(type: Delete) {
+    delete "./docs/fr"
+    delete fileTree("./docs/").include("*")
 }
 
 javadoc.finalizedBy(moveJavadoc)
-
-task cleanJavadoc(type: Delete){
-    delete fileTree("docs").matching {
-        include "*"
-    }}
