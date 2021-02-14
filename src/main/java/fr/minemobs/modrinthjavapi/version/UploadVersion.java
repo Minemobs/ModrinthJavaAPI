@@ -157,7 +157,7 @@ public class UploadVersion {
      * Upload your mod version to Modrinth
      * @param token Your modrinth token
      * @return {@link ModrinthVersion}
-     * @throws IOException throw an error
+     * @throws IOException
      */
     public ModrinthVersion uploadVersionToModrinth(String token) throws IOException {
 

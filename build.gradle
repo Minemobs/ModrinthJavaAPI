@@ -25,3 +25,15 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+task moveJavadoc(type: Copy){
+    from "$buildDir/docs"
+    into "docs"
+}
+
+javadoc.finalizedBy(moveJavadoc)
+
+task cleanJavadoc(type: Delete){
+    delete fileTree("docs").matching {
+        include "*"
+    }}
