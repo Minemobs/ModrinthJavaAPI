@@ -1,7 +1,12 @@
 package fr.minemobs.modrinthjavapi;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import okhttp3.MediaType;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,6 +22,17 @@ public class User {
     private String bio;
     private String role;
 
+    /**
+     * You don't need to instantiate it since Gson will do it for you.
+     * @param id the id of the user
+     * @param github_id the github id of the user
+     * @param username the username of the user
+     * @param name the name of the user
+     * @param email the email of the user
+     * @param avatar_url the url of the avatar
+     * @param bio the bio of the user
+     * @param role the role of the user
+     */
     public User(String id, long github_id, String username, String name, String email, String avatar_url, String bio, String role) {
         this.id = id;
         this.github_id = github_id;
@@ -74,7 +90,12 @@ public class User {
                 '}';
     }
 
-    public User getUserFromName(String username) {
+    /**
+     *
+     * @param username the username of the user
+     * @return {@link User}
+     */
+    public static User getUserFromName(String username) {
         try {
             if(username.contains("@")){
                 username = username.replace("@","");
@@ -88,6 +109,11 @@ public class User {
         return null;
     }
 
+    /**
+     * Get your own account
+     * @param token your Modrinth token
+     * @return {@link User}
+     */
     public static User getMySelf(String token){
         try {
             URL url = new URL(MainClass.baseUrl + "user");
@@ -107,7 +133,11 @@ public class User {
         return null;
     }
 
-    public static void userDelete(String token){
+    /**
+     * Delete your own account.
+     * @param token Your Modrinth token
+     */
+    public void userDelete(String token){
         try{
             String userId = getMySelf(token).getId();
             URL url = new URL(MainClass.baseUrl + "user/" + userId);
@@ -121,4 +151,49 @@ public class User {
             e.printStackTrace();
         }
     }
+
+    /**
+     *
+     * @param userInfo the type of information you want to edit
+     * @param info the information you want to change
+     * @param token Your Modrinth token
+     * @param userId the Id of the user
+     */
+    public void editUserInfo(@NotNull UserInfo userInfo, @NotNull String info, @NotNull String token, User userId) {
+        String json = null;
+        Gson gson = MainClass.getGson();
+        switch (userInfo) {
+            case BIO:
+                json = "{\"bio\":\"" + info + "\"}";
+                break;
+            case EMAIL:
+                json = "{\"email\":\"" + info + "\"}";
+                break;
+            case USERNAME:
+                json = "{\"username\":\"" + info + "\"}";
+                break;
+        }
+
+        try {
+            URL url = new URL(MainClass.baseUrl + "user/" + userId.getId());
+            MediaType mediaType = MediaType.parse("application/json");
+            RequestBody body = RequestBody.create(mediaType, json);
+            Request request = new Request.Builder()
+                    .url(url)
+                    .method("PATCH", body)
+                    .addHeader("Authorization", token)
+                    .build();
+            Response response = MainClass.getClient().newCall(request).execute();
+            response.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public enum UserInfo{
+        USERNAME(),
+        EMAIL(),
+        BIO()
+    }
+
 }

@@ -33,9 +33,32 @@ public class ModrinthMod {
     private String wiki_url;
     private String discord_url;
     private String donation_url;
-    private String published;
+    private LocalDateTime published;
     private String updated;
 
+    /**
+     * You don't need to instantiate this class since gson automatically instanciate it
+     * If you want to use this class you will need to use {@link #getModrinthModfromName(String)} or {@link #getModFromUserId(User)}
+     * @param id The id of your mod
+     * @param team The id of the team that has ownership of this mod
+     * @param title The title or name of the mod
+     * @param description A short description of the mod
+     * @param status The status of the mod - {@link ModStatus}
+     * @param license The license of the mod
+     * @param client_side The support range for the client mod - {@link SideStatus}
+     * @param server_side The support range for the client mod - {@link SideStatus}
+     * @param downloads The total number of downloads the mod has
+     * @param categories A list of the categories that the mod is in
+     * @param versions A list of ids for versions of the mod
+     * @param icon_url The URL of the icon of the mod
+     * @param issues_url An optional link to where to submit bugs or issues with the mod
+     * @param source_url An optional link to the source code for the mod
+     * @param wiki_url An optional link to the mod's wiki page or other relevant information
+     * @param discord_url An optional link to the mod's discord
+     * @param donation_url An optional list of all donation links the mod has
+     * @param published The date that this version was published
+     * @param updated The date at which the mod was updated
+     */
     public ModrinthMod(String id, String team, String title, String description, String status, HashMap<String, String> license, String client_side,
                        String server_side, int downloads, String[] categories, String[] versions, String icon_url,
                        String issues_url, String source_url, String wiki_url, String discord_url, String donation_url,
@@ -58,7 +81,7 @@ public class ModrinthMod {
         this.discord_url = discord_url;
         this.donation_url = donation_url;
 
-        this.published = published;
+        this.published = formatDate(published);
         this.updated = updated;
     }
 
@@ -165,7 +188,7 @@ public class ModrinthMod {
         return donation_url;
     }
 
-    public String getPublished() {
+    public LocalDateTime getPublished() {
         return published;
     }
 
@@ -173,6 +196,11 @@ public class ModrinthMod {
         return updated;
     }
 
+    /**
+     * Return a mod from its id
+     * @param nameOfTheMod the ID of the mod
+     * @return {@link ModrinthMod}
+     */
     public static ModrinthMod getModrinthModfromName(String nameOfTheMod) {
         char[] invalidChars = {"'".charAt(0), ')', '('};
         ModrinthMod mod = null;
@@ -198,7 +226,12 @@ public class ModrinthMod {
         return mod;
     }
 
-    public static String deleteMod(String modid, String token){
+    /**
+     *
+      * @param modid The id of the mod
+     * @param token Your Modrinth token
+     */
+    public void deleteMod(String modid, String token){
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create(mediaType, "");
         Request request = new Request.Builder()
@@ -206,16 +239,18 @@ public class ModrinthMod {
                 .method("DELETE", body)
                 .addHeader("Authorization", token)
                 .build();
-        String responseText = null;
         try {
             Response response = MainClass.getClient().newCall(request).execute();
-            responseText = response.body().string();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return responseText;
     }
 
+    /**
+     * Get a list of mod from an user
+     * @param user {@link User}
+     * @return an array of mods {@link ModrinthMod}
+     */
     public static ArrayList<ModrinthMod> getModFromUserId(User user){
         String userid = user.getId();
         InputStreamReader inputStreamReader = null;

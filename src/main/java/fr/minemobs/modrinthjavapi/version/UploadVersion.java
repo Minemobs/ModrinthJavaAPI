@@ -1,7 +1,7 @@
-package fr.minemobs.modrinthjavapi.post;
+package fr.minemobs.modrinthjavapi.version;
 
+import fr.minemobs.modrinthjavapi.Loaders;
 import fr.minemobs.modrinthjavapi.MainClass;
-import fr.minemobs.modrinthjavapi.ModrinthVersion;
 import fr.minemobs.modrinthjavapi.ReleaseChannel;
 import okhttp3.*;
 
@@ -24,6 +24,20 @@ public class UploadVersion {
     boolean featured;
     File file;
 
+    /**
+     *
+     * @param modrinthModId The id of your mod
+     * @param file_parts An array of the multipart field names of each file that goes with this version
+     * @param version_number A string that describes this version; should be something similar to semver, but isn't require to have a specific format
+     * @param version_title The human readable name of the version
+     * @param version_body A description of the version
+     * @param dependencies A list of dependencies of this version; this must be specified as an array of version ids of other mods' versions
+     * @param game_versions A list of game versions that this version supports
+     * @param releaseChannel What type of release that this version is; release, beta, or alpha {@link ReleaseChannel}
+     * @param loaders An array of the mod loaders that this mod supports {@link Loaders}
+     * @param featured Whether the version should be featured on the mod's homepage
+     * @param file The jar of your mod
+     */
     public UploadVersion(String modrinthModId, String[] file_parts, String version_number, String version_title, String version_body,
                          String[] dependencies, String[] game_versions, ReleaseChannel releaseChannel,
                          String[] loaders, boolean featured, File file) {
@@ -40,9 +54,6 @@ public class UploadVersion {
         this.file = file;
     }
 
-    /**
-     * ModRinth mod_id
-     */
     public String getModrinthModId() {
         return modrinthModId;
     }
@@ -125,7 +136,7 @@ public class UploadVersion {
         }
     }
 
-    public String formatedString(){
+    private String formatedString(){
         return String.format("{\"mod_id\": \"%s\"," +
                         "\"file_parts\": %s," +
                         "\"version_number\": \"%s\"," +
@@ -142,9 +153,13 @@ public class UploadVersion {
                 arrayToString(this.loaders), this.featured);
     }
 
+    /**
+     * Upload your mod version to Modrinth
+     * @param token Your modrinth token
+     * @return {@link ModrinthVersion}
+     * @throws IOException throw an error
+     */
     public ModrinthVersion uploadVersionToModrinth(String token) throws IOException {
-
-        MediaType mediaType = MediaType.parse("text/plain");
 
         String dataForm = formatedString();
 

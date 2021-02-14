@@ -1,5 +1,6 @@
-package fr.minemobs.modrinthjavapi;
+package fr.minemobs.modrinthjavapi.version;
 
+import fr.minemobs.modrinthjavapi.MainClass;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -10,7 +11,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -36,6 +36,13 @@ public class ModrinthVersion {
         private String url;
         private String filename;
 
+        /**
+         * You don't need to instantiate it since Gson will do it for you.
+         * If you use {@link #getVersionFromNameOfTheVersion(String)} it will return you this class
+         * @param hashes The hash of the file
+         * @param url The url of the file
+         * @param filename The name of the file
+         */
         public File(HashMap<String, String> hashes, String url, String filename) {
             this.hashes = hashes;
             this.url = url;
@@ -154,6 +161,11 @@ public class ModrinthVersion {
                 '}';
     }
 
+    /**
+     * @param versionName the id of the version
+     * @return {@link ModrinthVersion}
+     * @throws IOException if the mod doesn't exist it will throw an {@link IOException}
+     */
     public static ModrinthVersion getVersionFromNameOfTheVersion(String versionName) throws IOException {
         URL url = new URL(MainClass.baseUrl + "version/" + versionName);
         InputStreamReader reader = new InputStreamReader(url.openStream());
@@ -162,15 +174,30 @@ public class ModrinthVersion {
         return modrinthVersion;
     }
 
+    /**
+     * Delete a version from your mod id
+     * @param version {@link ModrinthVersion}
+     * @param token Your modrinth token
+     */
     public static void deleteVersion(ModrinthVersion version, String token){
         deleteVersion(version.getId(), token);
     }
 
+    /**
+     * Delete a version from your mod id
+     * @param id The id of the mod
+     * @param token Your modrinth token
+     */
     public static void deleteVersionFromId(String id, String token){
         deleteVersion(id, token);
     }
 
-    private static String deleteVersion(String id, String token){
+    /**
+     * Delete a version of a mod
+     * @param id The id of the mod
+     * @param token your Modrinth token
+     */
+    private static void deleteVersion(String id, String token){
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create(mediaType, "");
         Request request = new Request.Builder()
@@ -178,13 +205,10 @@ public class ModrinthVersion {
                 .method("DELETE", body)
                 .addHeader("Authorization", token)
                 .build();
-        String responseText = null;
         try {
             Response response = MainClass.getClient().newCall(request).execute();
-            responseText = response.body().string();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return responseText;
     }
 }

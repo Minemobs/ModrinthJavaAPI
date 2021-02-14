@@ -1,14 +1,17 @@
-package fr.minemobs.modrinthjavapi.get;
-
-import fr.minemobs.modrinthjavapi.MainClass;
+package fr.minemobs.modrinthjavapi;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Map;
 
 public class GetTags {
 
+    /**
+     * Get a list of mod loaders
+     * @return an array of Strings
+     */
     public static String[] getLoaders(){
         InputStreamReader inputStreamReader = null;
         try{
@@ -20,6 +23,10 @@ public class GetTags {
         return MainClass.getGson().fromJson(inputStreamReader, String[].class);
     }
 
+    /**
+     *
+     * @return an array of Strings
+     */
     public static String[] getGameVersions(){
         InputStreamReader inputStreamReader = null;
         try{
@@ -31,6 +38,11 @@ public class GetTags {
         return MainClass.getGson().fromJson(inputStreamReader, String[].class);
     }
 
+    /**
+     * Get all licenses on Modritnh
+     * See an example of how to use this function here {@link #getAllLicenses()}
+     * @return an array of HashMaps
+     */
     public static HashMap<String, String>[] getLicenses(){
         InputStreamReader inputStreamReader = null;
         try{
@@ -42,6 +54,10 @@ public class GetTags {
         return MainClass.getGson().fromJson(inputStreamReader, HashMap[].class);
     }
 
+    /**
+     *
+     * @return an array of Strings
+     */
     public static String[] getCategories(){
         InputStreamReader inputStreamReader = null;
         try{
@@ -51,6 +67,17 @@ public class GetTags {
             e.printStackTrace();
         }
         return MainClass.getGson().fromJson(inputStreamReader, String[].class);
+    }
+
+    private void getAllLicenses(){
+        HashMap<String, String>[] licenses = GetTags.getLicenses();
+        for (HashMap<String, String> licens : licenses) {
+            for (Map.Entry<String, String> entry : licens.entrySet()) {
+                String s = entry.getKey();
+                String s2 = entry.getValue();
+                System.out.println(s + " : " + s2);
+            }
+        }
     }
 
 }
