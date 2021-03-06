@@ -185,6 +185,8 @@ public class User {
             case USERNAME:
                 json = "{\"username\":\"" + info + "\"}";
                 break;
+            default:
+                return;
         }
 
         try {
