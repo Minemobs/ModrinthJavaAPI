@@ -1,6 +1,8 @@
 # ModrinthJavaAPI
 
-<img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/minemobs/ModrinthJavaAPI"/> <img alt="Github License" src="https://img.shields.io/github/license/minemobs/ModrinthJavaAPI"/>
+![GitHub Top Language](https://img.shields.io/github/languages/top/minemobs/ModrinthJavaAPI)
+![Github License](https://img.shields.io/github/license/minemobs/ModrinthJavaAPI)
+[![](https://jitpack.io/v/Minemobs/ModrinthJavaAPI.svg)](https://jitpack.io/#Minemobs/ModrinthJavaAPI)
 
 [Their API documentation](https://github.com/modrinth/labrinth/wiki/API-Documentation)
 
@@ -20,7 +22,7 @@ repositories {
 }
 ```
 
-And add in your dependencies this :
+Add this in your dependencies :
 
 ```groovy
 implementation 'com.github.Minemobs:ModrinthJavaAPI:main-SNAPSHOT'
