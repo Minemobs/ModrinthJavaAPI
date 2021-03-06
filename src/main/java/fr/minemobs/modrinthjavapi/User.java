@@ -23,7 +23,6 @@ public class User {
     private String role;
 
     /**
-     * You don't need to instantiate it since Gson will do it for you.
      * @param id the id of the user
      * @param github_id the github id of the user
      * @param username the username of the user
@@ -33,7 +32,7 @@ public class User {
      * @param bio the bio of the user
      * @param role the role of the user
      */
-    public User(String id, long github_id, String username, String name, String email, String avatar_url, String bio, String role) {
+    private User(String id, long github_id, String username, String name, String email, String avatar_url, String bio, String role) {
         this.id = id;
         this.github_id = github_id;
         this.username = username;
@@ -110,6 +109,22 @@ public class User {
     }
 
     /**
+     *
+     * @param id the id of the user
+     * @return {@link User}
+     */
+    public static User getUserFromId(String id) {
+        try {
+            URL url = new URL(MainClass.baseUrl + "user/" + id);
+            InputStreamReader inputStreamReader = new InputStreamReader(url.openStream());
+            return MainClass.getGson().fromJson(inputStreamReader, User.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
      * Get your own account
      * @param token your Modrinth token
      * @return {@link User}
@@ -177,7 +192,7 @@ public class User {
         try {
             URL url = new URL(MainClass.baseUrl + "user/" + userId.getId());
             MediaType mediaType = MediaType.parse("application/json");
-            RequestBody body = RequestBody.create(mediaType, json);
+            RequestBody body = RequestBody.create(json, mediaType);
             Request request = new Request.Builder()
                     .url(url)
                     .method("PATCH", body)
@@ -191,9 +206,9 @@ public class User {
     }
 
     public enum UserInfo{
-        USERNAME(),
-        EMAIL(),
-        BIO()
+        USERNAME,
+        EMAIL,
+        BIO
     }
 
 }

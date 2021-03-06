@@ -43,6 +43,7 @@ public class GetTags {
      * See an example of how to use this function here {@link #getAllLicenses()}
      * @return an array of HashMaps
      */
+    @SuppressWarnings("unchecked")
     public static HashMap<String, String>[] getLicenses(){
         InputStreamReader inputStreamReader = null;
         try{

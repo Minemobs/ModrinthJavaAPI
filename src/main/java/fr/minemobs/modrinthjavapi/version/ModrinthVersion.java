@@ -16,34 +16,33 @@ import java.util.HashMap;
 
 public class ModrinthVersion {
 
-    private String id;
-    private String mod_id;
-    private String name;
-    private String version_number;
-    private String changelog_url;
-    private int downloads;
-    private String version_type;
-    private String[] dependencies;
-    private String[] game_versions;
-    private String[] loaders;
-    private File[] files;
-    private String date_published;
+    private final String id;
+    private final String mod_id;
+    private final String name;
+    private final String version_number;
+    private final String changelog_url;
+    private final int downloads;
+    private final String version_type;
+    private final String[] dependencies;
+    private final String[] game_versions;
+    private final String[] loaders;
+    private final File[] files;
+    private final String date_published;
 
-    private LocalDateTime date_publishedAsADate;
+    private final LocalDateTime date_publishedAsADate;
 
     public static class File {
-        private HashMap<String, String> hashes;
-        private String url;
-        private String filename;
+        private final HashMap<String, String> hashes;
+        private final String url;
+        private final String filename;
 
         /**
-         * You don't need to instantiate it since Gson will do it for you.
          * If you use {@link #getVersionFromNameOfTheVersion(String)} it will return you this class
          * @param hashes The hash of the file
          * @param url The url of the file
          * @param filename The name of the file
          */
-        public File(HashMap<String, String> hashes, String url, String filename) {
+        private File(HashMap<String, String> hashes, String url, String filename) {
             this.hashes = hashes;
             this.url = url;
             this.filename = filename;
@@ -71,7 +70,7 @@ public class ModrinthVersion {
         }
     }
 
-    public ModrinthVersion(String id, String mod_id, String name, String version_number, String changelog_url,
+    private ModrinthVersion(String id, String mod_id, String name, String version_number, String changelog_url,
                            int downloads, String version_type, String[] dependencies, String[] game_versions,
                            String[] loaders, File[] files, String date_published) {
         this.id = id;
@@ -166,42 +165,29 @@ public class ModrinthVersion {
      * @return {@link ModrinthVersion}
      * @throws IOException if the mod doesn't exist it will throw an {@link IOException}
      */
-    public static ModrinthVersion getVersionFromNameOfTheVersion(String versionName) throws IOException {
-        URL url = new URL(MainClass.baseUrl + "version/" + versionName);
-        InputStreamReader reader = new InputStreamReader(url.openStream());
-        ModrinthVersion modrinthVersion = MainClass.getGson().fromJson(reader, ModrinthVersion.class);
-        reader.close();
-        return modrinthVersion;
-    }
-
-    /**
-     * Delete a version from your mod id
-     * @param version {@link ModrinthVersion}
-     * @param token Your modrinth token
-     */
-    public static void deleteVersion(ModrinthVersion version, String token){
-        deleteVersion(version.getId(), token);
-    }
-
-    /**
-     * Delete a version from your mod id
-     * @param id The id of the mod
-     * @param token Your modrinth token
-     */
-    public static void deleteVersionFromId(String id, String token){
-        deleteVersion(id, token);
+    public static ModrinthVersion getVersionFromNameOfTheVersion(String versionName) {
+        try {
+            URL url = new URL(MainClass.baseUrl + "version/" + versionName);
+            InputStreamReader reader = null;
+            reader = new InputStreamReader(url.openStream());
+            ModrinthVersion modrinthVersion = MainClass.getGson().fromJson(reader, ModrinthVersion.class);
+            reader.close();
+            return modrinthVersion;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
      * Delete a version of a mod
-     * @param id The id of the mod
      * @param token your Modrinth token
      */
-    private static void deleteVersion(String id, String token){
+    public void deleteVersion(String token){
         MediaType mediaType = MediaType.parse("text/plain");
-        RequestBody body = RequestBody.create(mediaType, "");
+        RequestBody body = RequestBody.create("", mediaType);
         Request request = new Request.Builder()
-                .url(MainClass.baseUrl + "version/" + id)
+                .url(MainClass.baseUrl + "version/" + this.id)
                 .method("DELETE", body)
                 .addHeader("Authorization", token)
                 .build();

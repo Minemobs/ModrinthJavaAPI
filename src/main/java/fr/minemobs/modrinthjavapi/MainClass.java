@@ -2,6 +2,7 @@ package fr.minemobs.modrinthjavapi;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import fr.minemobs.modrinthjavapi.version.ModrinthVersion;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import org.apache.logging.log4j.LogManager;
@@ -46,6 +47,13 @@ public class MainClass {
                 token = args[0].toLowerCase().replace("token=","");
             }
         }
+
+
+        ModrinthMod modrinthMod = ModrinthMod.getModrinthMod("puffertweaks");
+        System.out.println(modrinthMod.toString());
+        System.out.println("--------------------------------------");
+        ModrinthVersion modrinthVersion = ModrinthVersion.getVersionFromNameOfTheVersion(Arrays.asList(modrinthMod.getVersions()).get(0));
+        System.out.println(modrinthVersion.toString());
     }
 
     public static boolean contains(String str, char chr) {
