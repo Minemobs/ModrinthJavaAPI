@@ -12,17 +12,17 @@ public class UploadVersion {
     /**
      * ModRinth mod_id
      */
-    String modrinthModId;
-    String[] file_parts;
-    String version_number;
-    String version_title;
-    String version_body;
-    String[] dependencies;
-    String[] game_versions;
-    ReleaseChannel releaseChannel;
-    String[] loaders;
-    boolean featured;
-    File file;
+    private final String modrinthModId;
+    private final String[] file_parts;
+    private final String version_number;
+    private final String version_title;
+    private final String version_body;
+    private final String[] dependencies;
+    private final String[] game_versions;
+    private final ReleaseChannel releaseChannel;
+    private final String[] loaders;
+    private final boolean featured;
+    private final File file;
 
     /**
      *
@@ -157,22 +157,25 @@ public class UploadVersion {
      * Upload your mod version to Modrinth
      * @param token Your modrinth token
      * @return {@link ModrinthVersion}
-     * @throws IOException
      */
-    public ModrinthVersion uploadVersionToModrinth(String token) throws IOException {
+    public ModrinthVersion uploadVersionToModrinth(String token) {
+        try {
+            String dataForm = formatedString();
 
-        String dataForm = formatedString();
-
-        RequestBody body = new MultipartBody.Builder().setType(MultipartBody.FORM)
-                .addFormDataPart("data", dataForm)
-                .addFormDataPart("file", file.getName(), RequestBody.create(MediaType.parse("application/octet-stream"), file)).build();
-        Request request = new Request.Builder()
-                .url(MainClass.baseUrl + "version")
-                .method("POST", body)
-                .addHeader("Authorization", token)
-                .build();
-        Response response = MainClass.getClient().newCall(request).execute();
-        String responseText = response.body().string();
-        return MainClass.getGson().fromJson(responseText, ModrinthVersion.class);
+            RequestBody body = new MultipartBody.Builder().setType(MultipartBody.FORM)
+                    .addFormDataPart("data", dataForm)
+                    .addFormDataPart("file", file.getName(), RequestBody.create(MediaType.parse("application/octet-stream"), file)).build();
+            Request request = new Request.Builder()
+                    .url(MainClass.getBaseUrl() + "version")
+                    .method("POST", body)
+                    .addHeader("Authorization", token)
+                    .build();
+            Response response = MainClass.getClient().newCall(request).execute();
+            String responseText = response.body().string();
+            return MainClass.getGson().fromJson(responseText, ModrinthVersion.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

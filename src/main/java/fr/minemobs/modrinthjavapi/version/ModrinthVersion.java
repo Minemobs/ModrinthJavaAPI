@@ -167,7 +167,7 @@ public class ModrinthVersion {
      */
     public static ModrinthVersion getVersionFromNameOfTheVersion(String versionName) {
         try {
-            URL url = new URL(MainClass.baseUrl + "version/" + versionName);
+            URL url = new URL(MainClass.getBaseUrl() + "version/" + versionName);
             InputStreamReader reader = null;
             reader = new InputStreamReader(url.openStream());
             ModrinthVersion modrinthVersion = MainClass.getGson().fromJson(reader, ModrinthVersion.class);
@@ -187,12 +187,12 @@ public class ModrinthVersion {
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create("", mediaType);
         Request request = new Request.Builder()
-                .url(MainClass.baseUrl + "version/" + this.id)
+                .url(MainClass.getBaseUrl() + "version/" + this.id)
                 .method("DELETE", body)
                 .addHeader("Authorization", token)
                 .build();
         try {
-            Response response = MainClass.getClient().newCall(request).execute();
+            MainClass.getClient().newCall(request).execute();
         } catch (IOException e) {
             e.printStackTrace();
         }

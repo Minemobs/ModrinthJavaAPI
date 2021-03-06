@@ -15,8 +15,6 @@ public class MainClass {
 
     private final static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    String token = "";
-
     private final static Logger LOGGER = LogManager.getLogger(MainClass.class);
 
     private final static OkHttpClient client = new OkHttpClient().newBuilder()
@@ -34,9 +32,10 @@ public class MainClass {
         }
     }
 
-    public static String baseUrl = "https://api.modrinth.com/api/v1/";
+    private static String baseUrl = "https://api.modrinth.com/api/v1/";
 
     private void launchprog(String[] args) {
+        String token = "";
         if(args.length == 0 || args[0] == null || args[0].isEmpty()) {
             System.out.println("Write your token. If you don't know how to get a token please go on this page : https://modrinth.com/dashboard/settings" +
                     "\n And copy your token");
@@ -47,13 +46,7 @@ public class MainClass {
                 token = args[0].toLowerCase().replace("token=","");
             }
         }
-
-
-        ModrinthMod modrinthMod = ModrinthMod.getModrinthMod("puffertweaks");
-        System.out.println(modrinthMod.toString());
-        System.out.println("--------------------------------------");
-        ModrinthVersion modrinthVersion = ModrinthVersion.getVersionFromNameOfTheVersion(Arrays.asList(modrinthMod.getVersions()).get(0));
-        System.out.println(modrinthVersion.toString());
+        System.out.println(User.getMySelf(token).getUsername());
     }
 
     public static boolean contains(String str, char chr) {
@@ -75,4 +68,7 @@ public class MainClass {
         return client;
     }
 
+    public static String getBaseUrl() {
+        return baseUrl;
+    }
 }

@@ -39,7 +39,6 @@ public class ModrinthMod {
     private final String discord_url;
     private final String[] donation_urls;
 
-
     /**
      * If you want to use this class you will need to use {@link #getModrinthMod(String)} or {@link #getModFromUser(User)}
      * @param id The id of your mod
@@ -234,7 +233,7 @@ public class ModrinthMod {
 
         String nameOfTheModFormatted = nameOfTheMod.replace(' ','-').replace("'","");
         try {
-            URL url = new URL(MainClass.baseUrl + "mod/" + nameOfTheModFormatted);
+            URL url = new URL(MainClass.getBaseUrl() + "mod/" + nameOfTheModFormatted);
             InputStreamReader reader = new InputStreamReader(url.openStream());
             mod = MainClass.getGson().fromJson(reader, ModrinthMod.class);
             reader.close();
@@ -251,7 +250,7 @@ public class ModrinthMod {
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create("", mediaType);
         Request request = new Request.Builder()
-                .url(MainClass.baseUrl + "mod/" + this.id)
+                .url(MainClass.getBaseUrl() + "mod/" + this.id)
                 .method("DELETE", body)
                 .addHeader("Authorization", token)
                 .build();
@@ -271,7 +270,7 @@ public class ModrinthMod {
         String userid = user.getId();
         InputStreamReader inputStreamReader = null;
         try{
-            URL url = new URL(MainClass.baseUrl + "user/" + userid + "/mods");
+            URL url = new URL(MainClass.getBaseUrl() + "user/" + userid + "/mods");
             inputStreamReader = new InputStreamReader(url.openStream());
         }catch (IOException e){
             e.printStackTrace();

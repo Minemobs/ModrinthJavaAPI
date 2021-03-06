@@ -12,10 +12,10 @@ public class GetTags {
      * Get a list of mod loaders
      * @return an array of Strings
      */
-    public static String[] getLoaders(){
+    public String[] getLoaders(){
         InputStreamReader inputStreamReader = null;
         try{
-            URL url = new URL(MainClass.baseUrl + "tag/loader");
+            URL url = new URL(MainClass.getBaseUrl() + "tag/loader");
             inputStreamReader = new InputStreamReader(url.openStream());
         }catch (IOException e){
             e.printStackTrace();
@@ -27,10 +27,10 @@ public class GetTags {
      * Get a list of game versions
      * @return an array of Strings
      */
-    public static String[] getGameVersions(){
+    public String[] getGameVersions(){
         InputStreamReader inputStreamReader = null;
         try{
-            URL url = new URL(MainClass.baseUrl + "tag/game_version");
+            URL url = new URL(MainClass.getBaseUrl() + "tag/game_version");
             inputStreamReader = new InputStreamReader(url.openStream());
         }catch (IOException e){
             e.printStackTrace();
@@ -40,14 +40,13 @@ public class GetTags {
 
     /**
      * Get all licenses on Modrinth
-     * See an example of how to use this function here {@link #getAllLicenses()}
      * @return an array of HashMaps
      */
     @SuppressWarnings("unchecked")
-    public static HashMap<String, String>[] getLicenses(){
+    public HashMap<String, String>[] getLicenses(){
         InputStreamReader inputStreamReader = null;
         try{
-            URL url = new URL(MainClass.baseUrl + "tag/license");
+            URL url = new URL(MainClass.getBaseUrl() + "tag/license");
             inputStreamReader = new InputStreamReader(url.openStream());
         }catch (IOException e){
             e.printStackTrace();
@@ -59,26 +58,14 @@ public class GetTags {
      * Get a list of categories
      * @return an array of Strings
      */
-    public static String[] getCategories(){
+    public String[] getCategories(){
         InputStreamReader inputStreamReader = null;
         try{
-            URL url = new URL(MainClass.baseUrl + "tag/category");
+            URL url = new URL(MainClass.getBaseUrl() + "tag/category");
             inputStreamReader = new InputStreamReader(url.openStream());
         }catch (IOException e){
             e.printStackTrace();
         }
         return MainClass.getGson().fromJson(inputStreamReader, String[].class);
     }
-
-    private void getAllLicenses(){
-        HashMap<String, String>[] licenses = GetTags.getLicenses();
-        for (HashMap<String, String> licens : licenses) {
-            for (Map.Entry<String, String> entry : licens.entrySet()) {
-                String s = entry.getKey();
-                String s2 = entry.getValue();
-                System.out.println(s + " : " + s2);
-            }
-        }
-    }
-
 }

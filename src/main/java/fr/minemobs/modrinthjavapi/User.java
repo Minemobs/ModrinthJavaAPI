@@ -13,14 +13,14 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 public class User {
-    private String id;
-    private long github_id;
-    private String username;
-    private String name;
-    private String email;
-    private String avatar_url;
-    private String bio;
-    private String role;
+    private final String id;
+    private final long github_id;
+    private final String username;
+    private final String name;
+    private final String email;
+    private final String avatar_url;
+    private final String bio;
+    private final String role;
 
     /**
      * @param id the id of the user
@@ -99,7 +99,7 @@ public class User {
             if(username.contains("@")){
                 username = username.replace("@","");
             }
-            URL url = new URL(MainClass.baseUrl + "user/@" + username);
+            URL url = new URL(MainClass.getBaseUrl() + "user/@" + username);
             InputStreamReader inputStreamReader = new InputStreamReader(url.openStream());
             return MainClass.getGson().fromJson(inputStreamReader, User.class);
         } catch (IOException e) {
@@ -115,7 +115,7 @@ public class User {
      */
     public static User getUserFromId(String id) {
         try {
-            URL url = new URL(MainClass.baseUrl + "user/" + id);
+            URL url = new URL(MainClass.getBaseUrl() + "user/" + id);
             InputStreamReader inputStreamReader = new InputStreamReader(url.openStream());
             return MainClass.getGson().fromJson(inputStreamReader, User.class);
         } catch (IOException e) {
@@ -131,7 +131,7 @@ public class User {
      */
     public static User getMySelf(String token){
         try {
-            URL url = new URL(MainClass.baseUrl + "user");
+            URL url = new URL(MainClass.getBaseUrl() + "user");
             Request request = new Request.Builder()
                     .url(url)
                     .method("GET", null)
@@ -155,13 +155,13 @@ public class User {
     public void userDelete(String token){
         try{
             String userId = getMySelf(token).getId();
-            URL url = new URL(MainClass.baseUrl + "user/" + userId);
+            URL url = new URL(MainClass.getBaseUrl() + "user/" + userId);
             Request request = new Request.Builder()
                     .url(url)
                     .method("DELETE", null)
                     .addHeader("Authorization", token)
                     .build();
-            Response response = MainClass.getClient().newCall(request).execute();
+            MainClass.getClient().newCall(request).execute();
         }catch (IOException e) {
             e.printStackTrace();
         }
@@ -176,7 +176,6 @@ public class User {
      */
     public void editUserInfo(@NotNull UserInfo userInfo, @NotNull String info, @NotNull String token, User userId) {
         String json = null;
-        Gson gson = MainClass.getGson();
         switch (userInfo) {
             case BIO:
                 json = "{\"bio\":\"" + info + "\"}";
@@ -190,7 +189,7 @@ public class User {
         }
 
         try {
-            URL url = new URL(MainClass.baseUrl + "user/" + userId.getId());
+            URL url = new URL(MainClass.getBaseUrl() + "user/" + userId.getId());
             MediaType mediaType = MediaType.parse("application/json");
             RequestBody body = RequestBody.create(json, mediaType);
             Request request = new Request.Builder()
@@ -198,8 +197,7 @@ public class User {
                     .method("PATCH", body)
                     .addHeader("Authorization", token)
                     .build();
-            Response response = MainClass.getClient().newCall(request).execute();
-            response.close();
+            MainClass.getClient().newCall(request).execute();
         } catch (IOException e) {
             e.printStackTrace();
         }
