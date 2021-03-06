@@ -1,7 +1,5 @@
 package fr.minemobs.modrinthjavapi;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -95,11 +93,12 @@ public class User {
      * @return {@link User}
      */
     public static User getUserFromName(String username) {
+        String userName = "";
         try {
             if(username.contains("@")){
-                username = username.replace("@","");
+                userName = username.replace("@","");
             }
-            URL url = new URL(MainClass.getBaseUrl() + "user/@" + username);
+            URL url = new URL(MainClass.getBaseUrl() + "user/@" + userName);
             InputStreamReader inputStreamReader = new InputStreamReader(url.openStream());
             return MainClass.getGson().fromJson(inputStreamReader, User.class);
         } catch (IOException e) {
@@ -203,7 +202,7 @@ public class User {
         }
     }
 
-    public enum UserInfo{
+    public enum UserInfo {
         USERNAME,
         EMAIL,
         BIO

@@ -2,20 +2,20 @@ package fr.minemobs.modrinthjavapi;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import fr.minemobs.modrinthjavapi.version.ModrinthVersion;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class MainClass {
 
     private final static Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
     private final static Logger LOGGER = LogManager.getLogger(MainClass.class);
+    private final static String baseUrl = "https://api.modrinth.com/api/v1/";
 
     private final static OkHttpClient client = new OkHttpClient().newBuilder()
             .protocols(Collections.singletonList(Protocol.HTTP_1_1))
@@ -31,8 +31,6 @@ public class MainClass {
             e.printStackTrace();
         }
     }
-
-    private static String baseUrl = "https://api.modrinth.com/api/v1/";
 
     private void launchprog(String[] args) {
         String token = "";

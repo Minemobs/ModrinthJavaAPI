@@ -3,7 +3,11 @@ package fr.minemobs.modrinthjavapi.version;
 import fr.minemobs.modrinthjavapi.Loaders;
 import fr.minemobs.modrinthjavapi.MainClass;
 import fr.minemobs.modrinthjavapi.ReleaseChannel;
-import okhttp3.*;
+import okhttp3.MultipartBody;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.MediaType;
 
 import java.io.File;
 import java.io.IOException;
@@ -164,7 +168,7 @@ public class UploadVersion {
 
             RequestBody body = new MultipartBody.Builder().setType(MultipartBody.FORM)
                     .addFormDataPart("data", dataForm)
-                    .addFormDataPart("file", file.getName(), RequestBody.create(MediaType.parse("application/octet-stream"), file)).build();
+                    .addFormDataPart("file", file.getName(), RequestBody.create(file, MediaType.parse("application/octet-stream"))).build();
             Request request = new Request.Builder()
                     .url(MainClass.getBaseUrl() + "version")
                     .method("POST", body)

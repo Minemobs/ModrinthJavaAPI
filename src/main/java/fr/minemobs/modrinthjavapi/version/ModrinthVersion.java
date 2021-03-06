@@ -4,7 +4,6 @@ import fr.minemobs.modrinthjavapi.MainClass;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-import okhttp3.Response;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -168,7 +167,7 @@ public class ModrinthVersion {
     public static ModrinthVersion getVersionFromNameOfTheVersion(String versionName) {
         try {
             URL url = new URL(MainClass.getBaseUrl() + "version/" + versionName);
-            InputStreamReader reader = null;
+            InputStreamReader reader;
             reader = new InputStreamReader(url.openStream());
             ModrinthVersion modrinthVersion = MainClass.getGson().fromJson(reader, ModrinthVersion.class);
             reader.close();

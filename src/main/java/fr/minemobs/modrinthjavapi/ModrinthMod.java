@@ -3,7 +3,6 @@ package fr.minemobs.modrinthjavapi;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-import okhttp3.Response;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -90,10 +89,11 @@ public class ModrinthMod {
 
     public LocalDateTime formatDate(String dateAsString){
         LocalDateTime date;
+        String _dateAsString;
 
         int index = dateAsString.indexOf(".");
-        dateAsString = dateAsString.substring(0, index);
-        dateAsString+="Z";
+        _dateAsString = dateAsString.substring(0, index);
+        _dateAsString+="Z";
         date = LocalDateTime.parse(dateAsString, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'"));
         return date;
     }
@@ -220,18 +220,19 @@ public class ModrinthMod {
      * @return {@link ModrinthMod}
      */
     public static ModrinthMod getModrinthMod(String nameOfTheMod) {
+        String _nameOfTheMod;
         char[] invalidChars = {"'".charAt(0), ')', '('};
         ModrinthMod mod = null;
 
-        nameOfTheMod = nameOfTheMod.replaceAll(" ","-");
+        _nameOfTheMod = nameOfTheMod.replaceAll(" ","-");
 
         for (char invalidChar : invalidChars) {
-            if(MainClass.contains(nameOfTheMod, invalidChar)){
-                nameOfTheMod = nameOfTheMod.replace(String.valueOf(invalidChar),"");
+            if(MainClass.contains(_nameOfTheMod, invalidChar)){
+                _nameOfTheMod = _nameOfTheMod.replace(String.valueOf(invalidChar),"");
             }
         }
 
-        String nameOfTheModFormatted = nameOfTheMod.replace(' ','-').replace("'","");
+        String nameOfTheModFormatted = _nameOfTheMod.replace(' ','-').replace("'","");
         try {
             URL url = new URL(MainClass.getBaseUrl() + "mod/" + nameOfTheModFormatted);
             InputStreamReader reader = new InputStreamReader(url.openStream());
