@@ -1,7 +1,6 @@
 # ModrinthJavaAPI
 
-<img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/minemobs/ModrinthJavaAPI" />
-<img alt="Github License" src="https://img.shields.io/github/license/minemobs/ModrinthJavaAPI" />
+<img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/minemobs/ModrinthJavaAPI"/> <img alt="Github License" src="https://img.shields.io/github/license/minemobs/ModrinthJavaAPI"/>
 
 [Their API documentation](https://github.com/modrinth/labrinth/wiki/API-Documentation)
 
