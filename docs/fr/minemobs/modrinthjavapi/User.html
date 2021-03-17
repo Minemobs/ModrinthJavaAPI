@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":9,"i7":10,"i8":10,"i9":9,"i10":10,"i11":10,"i12":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":9,"i7":10,"i8":10,"i9":9,"i10":9,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -74,13 +74,13 @@ var activeTableTab = "activeTableTab";
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -130,32 +130,6 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/User.UserInfo.html" title="enum in fr.minemobs.modrinthjavapi">User.UserInfo</a></span></code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor.summary">
-<!--   -->
-</a>
-<h3>Constructor Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/User.html#User-java.lang.String-long-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">User</a></span>(java.lang.String&nbsp;id,
-    long&nbsp;github_id,
-    java.lang.String&nbsp;username,
-    java.lang.String&nbsp;name,
-    java.lang.String&nbsp;email,
-    java.lang.String&nbsp;avatar_url,
-    java.lang.String&nbsp;bio,
-    java.lang.String&nbsp;role)</code>
-<div class="block">You don't need to instantiate it since Gson will do it for you.</div>
-</td>
 </tr>
 </table>
 </li>
@@ -215,17 +189,21 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../fr/minemobs/modrinthjavapi/User.html" title="class in fr.minemobs.modrinthjavapi">User</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/User.html#getUserFromName-java.lang.String-">getUserFromName</a></span>(java.lang.String&nbsp;username)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/User.html#getUserFromId-java.lang.String-">getUserFromId</a></span>(java.lang.String&nbsp;id)</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/User.html#getUsername--">getUsername</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>static <a href="../../../fr/minemobs/modrinthjavapi/User.html" title="class in fr.minemobs.modrinthjavapi">User</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/User.html#getUserFromName-java.lang.String-">getUserFromName</a></span>(java.lang.String&nbsp;username)</code>&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/User.html#toString--">toString</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/User.html#getUsername--">getUsername</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/User.html#toString--">toString</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/User.html#userDelete-java.lang.String-">userDelete</a></span>(java.lang.String&nbsp;token)</code>
 <div class="block">Delete your own account.</div>
@@ -247,42 +225,6 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor.detail">
-<!--   -->
-</a>
-<h3>Constructor Detail</h3>
-<a name="User-java.lang.String-long-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>User</h4>
-<pre>public&nbsp;User(java.lang.String&nbsp;id,
-            long&nbsp;github_id,
-            java.lang.String&nbsp;username,
-            java.lang.String&nbsp;name,
-            java.lang.String&nbsp;email,
-            java.lang.String&nbsp;avatar_url,
-            java.lang.String&nbsp;bio,
-            java.lang.String&nbsp;role)</pre>
-<div class="block">You don't need to instantiate it since Gson will do it for you.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>id</code> - the id of the user</dd>
-<dd><code>github_id</code> - the github id of the user</dd>
-<dd><code>username</code> - the username of the user</dd>
-<dd><code>name</code> - the name of the user</dd>
-<dd><code>email</code> - the email of the user</dd>
-<dd><code>avatar_url</code> - the url of the avatar</dd>
-<dd><code>bio</code> - the bio of the user</dd>
-<dd><code>role</code> - the role of the user</dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
@@ -384,6 +326,21 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>username</code> - the username of the user</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><a href="../../../fr/minemobs/modrinthjavapi/User.html" title="class in fr.minemobs.modrinthjavapi"><code>User</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="getUserFromId-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getUserFromId</h4>
+<pre>public static&nbsp;<a href="../../../fr/minemobs/modrinthjavapi/User.html" title="class in fr.minemobs.modrinthjavapi">User</a>&nbsp;getUserFromId(java.lang.String&nbsp;id)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - the id of the user</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd><a href="../../../fr/minemobs/modrinthjavapi/User.html" title="class in fr.minemobs.modrinthjavapi"><code>User</code></a></dd>
 </dl>
@@ -495,13 +452,13 @@ extends java.lang.Object</pre>
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>

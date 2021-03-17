@@ -162,7 +162,6 @@ public class ModrinthVersion {
     /**
      * @param versionName the id of the version
      * @return {@link ModrinthVersion}
-     * @throws IOException if the mod doesn't exist it will throw an {@link IOException}
      */
     public static ModrinthVersion getVersionFromNameOfTheVersion(String versionName) {
         try {

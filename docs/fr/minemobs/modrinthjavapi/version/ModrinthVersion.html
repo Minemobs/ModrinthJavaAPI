@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":9,"i16":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":9,"i15":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -74,13 +74,13 @@ var activeTableTab = "activeTableTab";
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -134,34 +134,6 @@ extends java.lang.Object</pre>
 </table>
 </li>
 </ul>
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor.summary">
-<!--   -->
-</a>
-<h3>Constructor Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#ModrinthVersion-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-int-java.lang.String-java.lang.String:A-java.lang.String:A-java.lang.String:A-fr.minemobs.modrinthjavapi.version.ModrinthVersion.File:A-java.lang.String-">ModrinthVersion</a></span>(java.lang.String&nbsp;id,
-               java.lang.String&nbsp;mod_id,
-               java.lang.String&nbsp;name,
-               java.lang.String&nbsp;version_number,
-               java.lang.String&nbsp;changelog_url,
-               int&nbsp;downloads,
-               java.lang.String&nbsp;version_type,
-               java.lang.String[]&nbsp;dependencies,
-               java.lang.String[]&nbsp;game_versions,
-               java.lang.String[]&nbsp;loaders,
-               <a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.File.html" title="class in fr.minemobs.modrinthjavapi.version">ModrinthVersion.File</a>[]&nbsp;files,
-               java.lang.String&nbsp;date_published)</code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -175,76 +147,68 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#deleteVersion-fr.minemobs.modrinthjavapi.version.ModrinthVersion-java.lang.String-">deleteVersion</a></span>(<a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html" title="class in fr.minemobs.modrinthjavapi.version">ModrinthVersion</a>&nbsp;version,
-             java.lang.String&nbsp;token)</code>
-<div class="block">Delete a version from your mod id</div>
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#deleteVersion-java.lang.String-">deleteVersion</a></span>(java.lang.String&nbsp;token)</code>
+<div class="block">Delete a version of a mod</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#deleteVersionFromId-java.lang.String-java.lang.String-">deleteVersionFromId</a></span>(java.lang.String&nbsp;id,
-                   java.lang.String&nbsp;token)</code>
-<div class="block">Delete a version from your mod id</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#getChangelog_url--">getChangelog_url</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#getDate_published--">getDate_published</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.time.LocalDateTime</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#getDate_publishedAsADate--">getDate_publishedAsADate</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#getDependencies--">getDependencies</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#getDownloads--">getDownloads</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.File.html" title="class in fr.minemobs.modrinthjavapi.version">ModrinthVersion.File</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#getFiles--">getFiles</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#getGame_versions--">getGame_versions</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#getId--">getId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#getLoaders--">getLoaders</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#getMod_id--">getMod_id</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#getName--">getName</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#getVersion_number--">getVersion_number</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#getVersion_type--">getVersion_type</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html" title="class in fr.minemobs.modrinthjavapi.version">ModrinthVersion</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#getVersionFromNameOfTheVersion-java.lang.String-">getVersionFromNameOfTheVersion</a></span>(java.lang.String&nbsp;versionName)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -264,34 +228,6 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor.detail">
-<!--   -->
-</a>
-<h3>Constructor Detail</h3>
-<a name="ModrinthVersion-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-int-java.lang.String-java.lang.String:A-java.lang.String:A-java.lang.String:A-fr.minemobs.modrinthjavapi.version.ModrinthVersion.File:A-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>ModrinthVersion</h4>
-<pre>public&nbsp;ModrinthVersion(java.lang.String&nbsp;id,
-                       java.lang.String&nbsp;mod_id,
-                       java.lang.String&nbsp;name,
-                       java.lang.String&nbsp;version_number,
-                       java.lang.String&nbsp;changelog_url,
-                       int&nbsp;downloads,
-                       java.lang.String&nbsp;version_type,
-                       java.lang.String[]&nbsp;dependencies,
-                       java.lang.String[]&nbsp;game_versions,
-                       java.lang.String[]&nbsp;loaders,
-                       <a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.File.html" title="class in fr.minemobs.modrinthjavapi.version">ModrinthVersion.File</a>[]&nbsp;files,
-                       java.lang.String&nbsp;date_published)</pre>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
@@ -434,47 +370,26 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getVersionFromNameOfTheVersion</h4>
-<pre>public static&nbsp;<a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html" title="class in fr.minemobs.modrinthjavapi.version">ModrinthVersion</a>&nbsp;getVersionFromNameOfTheVersion(java.lang.String&nbsp;versionName)
-                                                      throws java.io.IOException</pre>
+<pre>public static&nbsp;<a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html" title="class in fr.minemobs.modrinthjavapi.version">ModrinthVersion</a>&nbsp;getVersionFromNameOfTheVersion(java.lang.String&nbsp;versionName)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>versionName</code> - the id of the version</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd><a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html" title="class in fr.minemobs.modrinthjavapi.version"><code>ModrinthVersion</code></a></dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code> - if the mod doesn't exist it will throw an <code>IOException</code></dd>
 </dl>
 </li>
 </ul>
-<a name="deleteVersion-fr.minemobs.modrinthjavapi.version.ModrinthVersion-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>deleteVersion</h4>
-<pre>public static&nbsp;void&nbsp;deleteVersion(<a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html" title="class in fr.minemobs.modrinthjavapi.version">ModrinthVersion</a>&nbsp;version,
-                                 java.lang.String&nbsp;token)</pre>
-<div class="block">Delete a version from your mod id</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>version</code> - <a href="../../../../fr/minemobs/modrinthjavapi/version/ModrinthVersion.html" title="class in fr.minemobs.modrinthjavapi.version"><code>ModrinthVersion</code></a></dd>
-<dd><code>token</code> - Your modrinth token</dd>
-</dl>
-</li>
-</ul>
-<a name="deleteVersionFromId-java.lang.String-java.lang.String-">
+<a name="deleteVersion-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>deleteVersionFromId</h4>
-<pre>public static&nbsp;void&nbsp;deleteVersionFromId(java.lang.String&nbsp;id,
-                                       java.lang.String&nbsp;token)</pre>
-<div class="block">Delete a version from your mod id</div>
+<h4>deleteVersion</h4>
+<pre>public&nbsp;void&nbsp;deleteVersion(java.lang.String&nbsp;token)</pre>
+<div class="block">Delete a version of a mod</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>id</code> - The id of the mod</dd>
-<dd><code>token</code> - Your modrinth token</dd>
+<dd><code>token</code> - your Modrinth token</dd>
 </dl>
 </li>
 </ul>
@@ -532,13 +447,13 @@ extends java.lang.Object</pre>
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>

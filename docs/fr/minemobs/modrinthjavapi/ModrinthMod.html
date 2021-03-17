@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":9,"i13":9,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":9,"i15":9,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -74,13 +74,13 @@ var activeTableTab = "activeTableTab";
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -115,44 +115,6 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor.summary">
-<!--   -->
-</a>
-<h3>Constructor Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#ModrinthMod-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.util.HashMap-java.lang.String-java.lang.String-int-java.lang.String:A-java.lang.String:A-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">ModrinthMod</a></span>(java.lang.String&nbsp;id,
-           java.lang.String&nbsp;team,
-           java.lang.String&nbsp;title,
-           java.lang.String&nbsp;description,
-           java.lang.String&nbsp;status,
-           java.util.HashMap&lt;java.lang.String,java.lang.String&gt;&nbsp;license,
-           java.lang.String&nbsp;client_side,
-           java.lang.String&nbsp;server_side,
-           int&nbsp;downloads,
-           java.lang.String[]&nbsp;categories,
-           java.lang.String[]&nbsp;versions,
-           java.lang.String&nbsp;icon_url,
-           java.lang.String&nbsp;issues_url,
-           java.lang.String&nbsp;source_url,
-           java.lang.String&nbsp;wiki_url,
-           java.lang.String&nbsp;discord_url,
-           java.lang.String&nbsp;donation_url,
-           java.lang.String&nbsp;published,
-           java.lang.String&nbsp;updated)</code>
-<div class="block">You don't need to instantiate this class since gson automatically instanciate it
- If you want to use this class you will need to use <a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getModrinthModfromName-java.lang.String-"><code>getModrinthModfromName(String)</code></a> or <a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getModFromUserId-fr.minemobs.modrinthjavapi.User-"><code>getModFromUserId(User)</code></a></div>
-</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -167,102 +129,113 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#deleteMod-java.lang.String-java.lang.String-">deleteMod</a></span>(java.lang.String&nbsp;modid,
-         java.lang.String&nbsp;token)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#deleteMod-java.lang.String-">deleteMod</a></span>(java.lang.String&nbsp;token)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.time.LocalDateTime</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#formatDate-java.lang.String-">formatDate</a></span>(java.lang.String&nbsp;dateAsString)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.lang.String[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getCategories--">getCategories</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getBody_url--">getBody_url</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getClient_side--">getClient_side</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getBody--">getBody</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getDescription--">getDescription</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>java.lang.String[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getCategories--">getCategories</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getDiscord_url--">getDiscord_url</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getClient_side--">getClient_side</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getDonation_url--">getDonation_url</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getDescription--">getDescription</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getDiscord_url--">getDiscord_url</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>java.lang.String[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getDonation_urls--">getDonation_urls</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getDownloads--">getDownloads</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getIcon_url--">getIcon_url</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getId--">getId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getIssues_url--">getIssues_url</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.util.HashMap&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getLicense--">getLicense</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>static java.util.ArrayList&lt;<a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html" title="class in fr.minemobs.modrinthjavapi">ModrinthMod</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getModFromUserId-fr.minemobs.modrinthjavapi.User-">getModFromUserId</a></span>(<a href="../../../fr/minemobs/modrinthjavapi/User.html" title="class in fr.minemobs.modrinthjavapi">User</a>&nbsp;user)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getModFromUser-fr.minemobs.modrinthjavapi.User-">getModFromUser</a></span>(<a href="../../../fr/minemobs/modrinthjavapi/User.html" title="class in fr.minemobs.modrinthjavapi">User</a>&nbsp;user)</code>
 <div class="block">Get a list of mod from an user</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
-<td class="colFirst"><code>static <a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html" title="class in fr.minemobs.modrinthjavapi">ModrinthMod</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getModrinthModfromName-java.lang.String-">getModrinthModfromName</a></span>(java.lang.String&nbsp;nameOfTheMod)</code>
-<div class="block">Return a mod from its id</div>
-</td>
-</tr>
-<tr id="i14" class="altColor">
-<td class="colFirst"><code>java.time.LocalDateTime</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getPublished--">getPublished</a></span>()</code>&nbsp;</td>
-</tr>
 <tr id="i15" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getServer_side--">getServer_side</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>static <a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html" title="class in fr.minemobs.modrinthjavapi">ModrinthMod</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getModrinthMod-java.lang.String-">getModrinthMod</a></span>(java.lang.String&nbsp;nameOfTheMod)</code>
+<div class="block">Return a mod from it's name / id</div>
+</td>
 </tr>
 <tr id="i16" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getSource_url--">getSource_url</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getPublished--">getPublished</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getStatus--">getStatus</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getServer_side--">getServer_side</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i18" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getTeam--">getTeam</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getSlug--">getSlug</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i19" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getTitle--">getTitle</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getSource_url--">getSource_url</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i20" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getUpdated--">getUpdated</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getStatus--">getStatus</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i21" class="rowColor">
-<td class="colFirst"><code>java.lang.String[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getVersions--">getVersions</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getTeam--">getTeam</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i22" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getWiki_url--">getWiki_url</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getTitle--">getTitle</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i23" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getUpdated--">getUpdated</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>java.lang.String[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getVersions--">getVersions</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i25" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getWiki_url--">getWiki_url</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -282,65 +255,6 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor.detail">
-<!--   -->
-</a>
-<h3>Constructor Detail</h3>
-<a name="ModrinthMod-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.util.HashMap-java.lang.String-java.lang.String-int-java.lang.String:A-java.lang.String:A-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>ModrinthMod</h4>
-<pre>public&nbsp;ModrinthMod(java.lang.String&nbsp;id,
-                   java.lang.String&nbsp;team,
-                   java.lang.String&nbsp;title,
-                   java.lang.String&nbsp;description,
-                   java.lang.String&nbsp;status,
-                   java.util.HashMap&lt;java.lang.String,java.lang.String&gt;&nbsp;license,
-                   java.lang.String&nbsp;client_side,
-                   java.lang.String&nbsp;server_side,
-                   int&nbsp;downloads,
-                   java.lang.String[]&nbsp;categories,
-                   java.lang.String[]&nbsp;versions,
-                   java.lang.String&nbsp;icon_url,
-                   java.lang.String&nbsp;issues_url,
-                   java.lang.String&nbsp;source_url,
-                   java.lang.String&nbsp;wiki_url,
-                   java.lang.String&nbsp;discord_url,
-                   java.lang.String&nbsp;donation_url,
-                   java.lang.String&nbsp;published,
-                   java.lang.String&nbsp;updated)</pre>
-<div class="block">You don't need to instantiate this class since gson automatically instanciate it
- If you want to use this class you will need to use <a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getModrinthModfromName-java.lang.String-"><code>getModrinthModfromName(String)</code></a> or <a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html#getModFromUserId-fr.minemobs.modrinthjavapi.User-"><code>getModFromUserId(User)</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>id</code> - The id of your mod</dd>
-<dd><code>team</code> - The id of the team that has ownership of this mod</dd>
-<dd><code>title</code> - The title or name of the mod</dd>
-<dd><code>description</code> - A short description of the mod</dd>
-<dd><code>status</code> - The status of the mod - <a href="../../../fr/minemobs/modrinthjavapi/ModStatus.html" title="enum in fr.minemobs.modrinthjavapi"><code>ModStatus</code></a></dd>
-<dd><code>license</code> - The license of the mod</dd>
-<dd><code>client_side</code> - The support range for the client mod - <a href="../../../fr/minemobs/modrinthjavapi/SideStatus.html" title="enum in fr.minemobs.modrinthjavapi"><code>SideStatus</code></a></dd>
-<dd><code>server_side</code> - The support range for the client mod - <a href="../../../fr/minemobs/modrinthjavapi/SideStatus.html" title="enum in fr.minemobs.modrinthjavapi"><code>SideStatus</code></a></dd>
-<dd><code>downloads</code> - The total number of downloads the mod has</dd>
-<dd><code>categories</code> - A list of the categories that the mod is in</dd>
-<dd><code>versions</code> - A list of ids for versions of the mod</dd>
-<dd><code>icon_url</code> - The URL of the icon of the mod</dd>
-<dd><code>issues_url</code> - An optional link to where to submit bugs or issues with the mod</dd>
-<dd><code>source_url</code> - An optional link to the source code for the mod</dd>
-<dd><code>wiki_url</code> - An optional link to the mod's wiki page or other relevant information</dd>
-<dd><code>discord_url</code> - An optional link to the mod's discord</dd>
-<dd><code>donation_url</code> - An optional list of all donation links the mod has</dd>
-<dd><code>published</code> - The date that this version was published</dd>
-<dd><code>updated</code> - The date at which the mod was updated</dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
@@ -378,6 +292,15 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;java.lang.String&nbsp;getId()</pre>
 </li>
 </ul>
+<a name="getSlug--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSlug</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getSlug()</pre>
+</li>
+</ul>
 <a name="getTeam--">
 <!--   -->
 </a>
@@ -403,6 +326,42 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getDescription</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getDescription()</pre>
+</li>
+</ul>
+<a name="getBody--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBody</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getBody()</pre>
+</li>
+</ul>
+<a name="getBody_url--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBody_url</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getBody_url()</pre>
+</li>
+</ul>
+<a name="getPublished--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPublished</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getPublished()</pre>
+</li>
+</ul>
+<a name="getUpdated--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getUpdated</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getUpdated()</pre>
 </li>
 </ul>
 <a name="getStatus--">
@@ -513,71 +472,51 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;java.lang.String&nbsp;getDiscord_url()</pre>
 </li>
 </ul>
-<a name="getDonation_url--">
+<a name="getDonation_urls--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getDonation_url</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getDonation_url()</pre>
+<h4>getDonation_urls</h4>
+<pre>public&nbsp;java.lang.String[]&nbsp;getDonation_urls()</pre>
 </li>
 </ul>
-<a name="getPublished--">
+<a name="getModrinthMod-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getPublished</h4>
-<pre>public&nbsp;java.time.LocalDateTime&nbsp;getPublished()</pre>
-</li>
-</ul>
-<a name="getUpdated--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getUpdated</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getUpdated()</pre>
-</li>
-</ul>
-<a name="getModrinthModfromName-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getModrinthModfromName</h4>
-<pre>public static&nbsp;<a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html" title="class in fr.minemobs.modrinthjavapi">ModrinthMod</a>&nbsp;getModrinthModfromName(java.lang.String&nbsp;nameOfTheMod)</pre>
-<div class="block">Return a mod from its id</div>
+<h4>getModrinthMod</h4>
+<pre>public static&nbsp;<a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html" title="class in fr.minemobs.modrinthjavapi">ModrinthMod</a>&nbsp;getModrinthMod(java.lang.String&nbsp;nameOfTheMod)</pre>
+<div class="block">Return a mod from it's name / id</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>nameOfTheMod</code> - the ID of the mod</dd>
+<dd><code>nameOfTheMod</code> - the name of the mod or the mod id</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd><a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html" title="class in fr.minemobs.modrinthjavapi"><code>ModrinthMod</code></a></dd>
 </dl>
 </li>
 </ul>
-<a name="deleteMod-java.lang.String-java.lang.String-">
+<a name="deleteMod-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>deleteMod</h4>
-<pre>public&nbsp;void&nbsp;deleteMod(java.lang.String&nbsp;modid,
-                      java.lang.String&nbsp;token)</pre>
+<pre>public&nbsp;void&nbsp;deleteMod(java.lang.String&nbsp;token)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>modid</code> - The id of the mod</dd>
 <dd><code>token</code> - Your Modrinth token</dd>
 </dl>
 </li>
 </ul>
-<a name="getModFromUserId-fr.minemobs.modrinthjavapi.User-">
+<a name="getModFromUser-fr.minemobs.modrinthjavapi.User-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getModFromUserId</h4>
-<pre>public static&nbsp;java.util.ArrayList&lt;<a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html" title="class in fr.minemobs.modrinthjavapi">ModrinthMod</a>&gt;&nbsp;getModFromUserId(<a href="../../../fr/minemobs/modrinthjavapi/User.html" title="class in fr.minemobs.modrinthjavapi">User</a>&nbsp;user)</pre>
+<h4>getModFromUser</h4>
+<pre>public static&nbsp;java.util.ArrayList&lt;<a href="../../../fr/minemobs/modrinthjavapi/ModrinthMod.html" title="class in fr.minemobs.modrinthjavapi">ModrinthMod</a>&gt;&nbsp;getModFromUser(<a href="../../../fr/minemobs/modrinthjavapi/User.html" title="class in fr.minemobs.modrinthjavapi">User</a>&nbsp;user)</pre>
 <div class="block">Get a list of mod from an user</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -641,13 +580,13 @@ extends java.lang.Object</pre>
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>

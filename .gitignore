@@ -17,4 +17,4 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 
 /src/main/resources/someUslessResources
-settings.gradle
+/gradle.properties

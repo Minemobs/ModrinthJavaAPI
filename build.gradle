@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'application'
     id "com.github.johnrengelman.shadow" version "6.1.0"
+    id 'maven-publish'
 }
 
 group 'fr.minemobs.modrinthapi'
@@ -17,9 +18,9 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.6'
-    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '5.0.0-alpha.2'
-    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.1'
-    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.1'
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '5.0.0-alpha.2'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.1'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.1'
 }
 
 test {
@@ -38,3 +39,16 @@ task cleanJavadoc(type: Delete) {
 }
 
 javadoc.finalizedBy(moveJavadoc)
+
+publish{
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/Minemobs/ModrinthJavaAPI"
+            credentials {
+                username = properties.GITHUB_ACTOR
+                password = properties.TOKEN
+            }
+        }
+    }
+}
