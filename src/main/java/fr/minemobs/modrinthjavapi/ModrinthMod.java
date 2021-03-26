@@ -1,6 +1,7 @@
 package fr.minemobs.modrinthjavapi;
 
 import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 
@@ -87,7 +88,7 @@ public class ModrinthMod {
         this.donation_urls = donation_urls;
     }
 
-    public LocalDateTime formatDate(String dateAsString){
+    public static LocalDateTime formatDate(String dateAsString){
         LocalDateTime date;
         String _dateAsString;
 

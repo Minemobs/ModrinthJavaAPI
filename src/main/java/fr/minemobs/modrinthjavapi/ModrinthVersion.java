@@ -1,6 +1,5 @@
-package fr.minemobs.modrinthjavapi.version;
+package fr.minemobs.modrinthjavapi;
 
-import fr.minemobs.modrinthjavapi.MainClass;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;

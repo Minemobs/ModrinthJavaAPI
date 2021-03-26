@@ -1,7 +1,8 @@
-package fr.minemobs.modrinthjavapi.version;
+package fr.minemobs.modrinthjavapi.post;
 
 import fr.minemobs.modrinthjavapi.Loaders;
 import fr.minemobs.modrinthjavapi.MainClass;
+import fr.minemobs.modrinthjavapi.ModrinthVersion;
 import fr.minemobs.modrinthjavapi.ReleaseChannel;
 import okhttp3.MultipartBody;
 import okhttp3.Request;

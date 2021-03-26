@@ -2,6 +2,7 @@ package fr.minemobs.modrinthjavapi;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import fr.minemobs.modrinthjavapi.post.CreateMod;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import org.apache.logging.log4j.LogManager;
@@ -13,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MainClass {
 
-    private final static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private final static Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
     private final static Logger LOGGER = LogManager.getLogger(MainClass.class);
     private final static String baseUrl = "https://api.modrinth.com/api/v1/";
 
@@ -44,7 +45,13 @@ public class MainClass {
                 token = args[0].toLowerCase().replace("token=","");
             }
         }
-        System.out.println(User.getMySelf(token).getUsername());
+        CreateMod createMod = new CreateMod("TestModYou", "testminemobsmod", "A Test mod", "I test my api written in java to see if everything works",
+                new CreateMod.InitialVersionData[]{new CreateMod.InitialVersionData(/*Not supported*/null, "v1.0", "First release", "Test version", new String[]{},
+                        new String[]{"1.16.4"}, ReleaseChannel.ALPHA, new Loaders[]{Loaders.FORGE, Loaders.FABRIC}, false)},
+                new String[]{"misc"}, null, null, null, null, null, true, SideStatus.UNSUPPORTED, SideStatus.UNSUPPORTED, "mit", new DonationLink[]{}
+        );
+
+        System.out.println(createMod.createMod(token).toString());
     }
 
     public static boolean contains(String str, char chr) {
