@@ -1,8 +1,8 @@
-package fr.minemobs.modrinthjavapi;
+package fr.minemobs.modrinthjavalib;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import fr.minemobs.modrinthjavapi.post.CreateMod;
+import fr.minemobs.modrinthjavalib.post.CreateMod;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import org.apache.logging.log4j.LogManager;

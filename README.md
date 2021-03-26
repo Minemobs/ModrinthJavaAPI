@@ -1,12 +1,12 @@
 # ModrinthJavaAPI
 
-![GitHub Top Language](https://img.shields.io/github/languages/top/minemobs/ModrinthJavaAPI)
-![Github License](https://img.shields.io/github/license/minemobs/ModrinthJavaAPI)
-[![](https://jitpack.io/v/Minemobs/ModrinthJavaAPI.svg)](https://jitpack.io/#Minemobs/ModrinthJavaAPI)
+![GitHub Top Language](https://img.shields.io/github/languages/top/minemobs/ModrinthJavaLib)
+![Github License](https://img.shields.io/github/license/minemobs/ModrinthJavaLib)
+[![](https://jitpack.io/v/Minemobs/ModrinthJavaAPI.svg)](https://jitpack.io/#Minemobs/ModrinthJavaLib)
 
 [Their API documentation](https://github.com/modrinth/labrinth/wiki/API-Documentation)
 
-[My Documentation](https://minemobs.github.io/ModrinthJavaAPI/) (literally the same as the official documentation)
+[My Documentation](https://minemobs.github.io/ModrinthJavaLib/) (literally the same as the official documentation)
 
 Thanks to [Emrio](https://github.com/TheEmrio) for helping me to make post request
 

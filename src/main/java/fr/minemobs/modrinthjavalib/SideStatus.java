@@ -1,4 +1,4 @@
-package fr.minemobs.modrinthjavapi;
+package fr.minemobs.modrinthjavalib;
 
 public enum SideStatus {
     REQUIRED("required"),

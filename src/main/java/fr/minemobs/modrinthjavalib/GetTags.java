@@ -1,4 +1,4 @@
-package fr.minemobs.modrinthjavapi;
+package fr.minemobs.modrinthjavalib;
 
 import java.io.IOException;
 import java.io.InputStreamReader;

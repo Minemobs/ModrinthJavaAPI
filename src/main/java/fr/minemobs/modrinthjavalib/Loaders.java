@@ -1,4 +1,4 @@
-package fr.minemobs.modrinthjavapi;
+package fr.minemobs.modrinthjavalib;
 
 public enum Loaders {
     FABRIC("fabric"),

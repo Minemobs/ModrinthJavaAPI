@@ -1,6 +1,6 @@
-package fr.minemobs.modrinthjavapi.post;
+package fr.minemobs.modrinthjavalib.post;
 
-import fr.minemobs.modrinthjavapi.*;
+import fr.minemobs.modrinthjavalib.*;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
 
