@@ -1,13 +1,40 @@
 package fr.minemobs.modrinthjavalib.post;
 
-import fr.minemobs.modrinthjavalib.*;
-import okhttp3.*;
+
+import fr.minemobs.modrinthjavalib.Loaders;
+import fr.minemobs.modrinthjavalib.MainClass;
+import fr.minemobs.modrinthjavalib.ModrinthMod;
+import fr.minemobs.modrinthjavalib.SideStatus;
+import fr.minemobs.modrinthjavalib.DonationLink;
+import fr.minemobs.modrinthjavalib.ReleaseChannel;
+
+import okhttp3.MultipartBody;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CreateMod {
+
+    private final String modName;
+    private final String modSlug;
+    private final String modDescription;
+    private final String modBody;
+    private final InitialVersionData[] initialVersionData;
+    private final String[] categories;
+    private final String issuesUrl;
+    private final String sourceUrl;
+    private final String wikiUrl;
+    private final String licenseUrl;
+    private final String discordUrl;
+    private final boolean isDraft;
+    private final SideStatus clientSide;
+    private final SideStatus serverSide;
+    private final String licenseId;
+    private final DonationLink[] donationUrls;
 
     public static class InitialVersionData {
         private final String[] fileParts;
@@ -50,23 +77,6 @@ public class CreateMod {
                     "}";
         }
     }
-
-    private final String modName;
-    private final String modSlug;
-    private final String modDescription;
-    private final String modBody;
-    private final InitialVersionData[] initialVersionData;
-    private final String[] categories;
-    private final String issuesUrl;
-    private final String sourceUrl;
-    private final String wikiUrl;
-    private final String licenseUrl;
-    private final String discordUrl;
-    private final boolean isDraft;
-    private final SideStatus clientSide;
-    private final SideStatus serverSide;
-    private final String licenseId;
-    private final DonationLink[] donationUrls;
 
     public CreateMod(@NotNull String modName, @NotNull String modSlug, @NotNull String modDescription, @NotNull String modBody, @NotNull InitialVersionData[] initialVersionData,
                      @NotNull String[] categories, String issuesUrl, String sourceUrl, String wikiUrl, String licenseUrl, String discordUrl, boolean isDraft, SideStatus clientSide,
